@@ -1,0 +1,121 @@
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+a { font-weight: bold; }
+
+p {
+  position: absolute;
+  margin-top: 2.5em;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/* Elements to animate --------------------------------------------- */
+
+.mario {
+  height: 100px;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  animation: drive 3s both infinite linear,
+             jump 0.3s 1.2s ease;
+}
+
+.luigi {
+  height: 85px;
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  animation-name: drive;
+  animation-duration: 4s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+.cloud {
+  position: absolute;
+}
+
+.cloud:nth-child(1) {
+  width: 200px;
+  top: 120px;
+  opacity: 0.5;
+  animation: wind 80s linear infinite reverse;
+}
+
+.cloud:nth-child(2) {
+  width: 240px;
+  top: 0;
+  opacity: 0.5;
+  animation: wind 40s linear infinite reverse;
+}
+
+.myTitle {
+  animation: pop 10s ease infinite;
+}
+
+/* Web para el timing: http://cubic-bezier.com */
+
+/* Keyframes ------------------------------------------------------- */
+
+@keyframes drive {
+  from { transform: translateX(-200px) }
+  to { transform: translateX(1600px) }
+}
+
+@keyframes wind {
+  from { left: -300px }
+  to { left: 100% }
+}
+
+@keyframes jump {
+  0% { top: -40px }
+  50% { top: -100px }
+  100% { top: -40px }
+}
+
+@keyframes pop {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.4) }
+  100% { transform: scale(1) }
+}
